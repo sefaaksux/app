@@ -1,0 +1,13 @@
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\bin\Debug\KutuphaneOtomasyonum.exe.config
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\bin\Debug\KutuphaneOtomasyonum.exe
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\bin\Debug\KutuphaneOtomasyonum.pdb
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.csproj.AssemblyReference.cache
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.csproj.SuggestedBindingRedirects.cache
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.Anasayfa.resources
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.Form1.resources
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.Properties.Resources.resources
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.csproj.GenerateResource.cache
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.csproj.CoreCompileInputs.cache
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.exe
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.pdb
+C:\KutuphaneOtomasyonum\KutuphaneOtomasyonum\obj\Debug\KutuphaneOtomasyonum.kitapeklesil.resources
