@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KutuphaneOtomasyonum
 {
-    internal class kitap
+    public class kitap
     {
         public int kitapID { get; set; }
         public string Kitapİsmi { get; set; }
@@ -14,7 +14,7 @@ namespace KutuphaneOtomasyonum
         public int SayfaSayisi { get; set; }
         public string YayinEvi { get; set; }
         public int BasimYili { get; set; }
-
+        public loginStatus status { get; set; }
 
 
 

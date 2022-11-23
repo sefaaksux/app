@@ -53,7 +53,7 @@ namespace KutuphaneOtomasyonum.Ado
             }      
         }
 
-        public void kitaplariGetir()
+        public kitap kitaplariGetir()
         {
             List<kitap> kitapList = new List<kitap>();
             con = new SqlConnection("Data Source=SEFA\\SQLEXPRESS;Initial Catalog=kutuphane;User ID=sa;password=1");
@@ -61,7 +61,7 @@ namespace KutuphaneOtomasyonum.Ado
             cmd = new SqlCommand("select * from kitap", con);
             dr = cmd.ExecuteReader();
 
-            while (dr.Read())
+            if(dr.Read())
             {
                 kitap kitap = new kitap();
                 kitap.kitapID =int.Parse( dr["kitapID"].ToString());
@@ -70,8 +70,19 @@ namespace KutuphaneOtomasyonum.Ado
                 kitap.SayfaSayisi = int.Parse( dr["SayfaSayisi"].ToString());
                 kitap.BasimYili =int.Parse(dr["BasimYili"].ToString());
                 kitapList.Add(kitap);
+                con.Close();
+                kitap.status = loginStatus.basarili;
+                return kitap;
 
             }
+            else
+            {
+                kitap kitap = new kitap();
+                kitap.status = loginStatus.basarisiz;
+                return kitap;
+
+            }
+
 
 
 
