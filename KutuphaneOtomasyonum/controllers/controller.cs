@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace KutuphaneOtomasyonum.controllers
 {
+
     public class controller
+
     {
+        repository repository = new repository();
         public controller()
         {
             repository repository = new repository();
@@ -30,6 +33,32 @@ namespace KutuphaneOtomasyonum.controllers
                 users.status = loginStatus.eksikParametre;
                 return users;
             }
+
+        }
+        public loginStatus kitapKaydet(kitap kitap)
+        {
+            if (!string.IsNullOrEmpty(kitap.kitapID.ToString()) && !string.IsNullOrEmpty(kitap.Kitapİsmi) && !string.IsNullOrEmpty(kitap.Yazari) && !string.IsNullOrEmpty(kitap.SayfaSayisi.ToString()) && !string.IsNullOrEmpty(kitap.YayinEvi) && !string.IsNullOrEmpty(kitap.BasimYili.ToString()))
+            {
+                
+
+                return repository.kitapKaydet(kitap);
+            }
+            else
+            {
+                return loginStatus.eksikParametre;
+            }
+                
+
+
+
+             
+
+        }
+        public List<kitap> kitaplariGetir()
+        {
+            repository repository = new repository();
+            return repository.kitaplariGetir();
+
 
         }
 

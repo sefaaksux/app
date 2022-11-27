@@ -53,7 +53,7 @@ namespace KutuphaneOtomasyonum.Ado
             }      
         }
 
-        public void kitaplariGetir()
+        public List<kitap> kitaplariGetir()
         {
             List<kitap> kitapList = new List<kitap>();
             con = new SqlConnection("Data Source=SEFA\\SQLEXPRESS;Initial Catalog=kutuphane;User ID=sa;password=1");
@@ -61,17 +61,47 @@ namespace KutuphaneOtomasyonum.Ado
             cmd = new SqlCommand("select * from kitap", con);
             dr = cmd.ExecuteReader();
 
-            while (dr.Read())
+            while(dr.Read())
             {
                 kitap kitap = new kitap();
                 kitap.kitapID =int.Parse( dr["kitapID"].ToString());
                 kitap.Kitapİsmi = dr["Kitapİsmi"].ToString();
                 kitap.Yazari = dr["Yazari"].ToString();
                 kitap.SayfaSayisi = int.Parse( dr["SayfaSayisi"].ToString());
+                kitap.YayinEvi =dr["YayinEvi"].ToString();
                 kitap.BasimYili =int.Parse(dr["BasimYili"].ToString());
                 kitapList.Add(kitap);
-
             }
+            con.Close();
+            return kitapList;
+
+        }
+
+        public loginStatus kitapKaydet(kitap kitap)
+        {
+            con.Open();
+            cmd = new SqlCommand("insert into kitap(kitapID,Kitapİsmi,Yazari,SayfaSayisi,YayinEvi,BasimYili) values(@p1,@p2,@p3,@p4,@p5,p6)", con);
+            cmd.Parameters.AddWithValue("@p1",kitap.kitapID);
+            cmd.Parameters.AddWithValue("@p2", kitap.Kitapİsmi);
+            cmd.Parameters.AddWithValue("@p3",kitap.Yazari);
+            cmd.Parameters.AddWithValue("@p4", kitap.SayfaSayisi);
+            cmd.Parameters.AddWithValue("@p5", kitap.YayinEvi);
+            cmd.Parameters.AddWithValue("@p6", kitap.BasimYili);
+
+            int returnValue =cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (returnValue==1)
+            {
+                return loginStatus.basarili;
+            }
+            else
+            {
+                return loginStatus.basarisiz;
+            }
+
+              
+
 
 
 

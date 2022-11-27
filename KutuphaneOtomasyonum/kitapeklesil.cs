@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KutuphaneOtomasyonum.controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,12 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KutuphaneOtomasyonum;
 
 namespace KutuphaneOtomasyonum
 {
     public partial class kitapeklesil : Form
     {
-        
+        controller controller = new controller();
+
+
         public kitapeklesil()
         {
             InitializeComponent();
@@ -28,27 +32,43 @@ namespace KutuphaneOtomasyonum
 
         private void kitapeklesil_Load(object sender, EventArgs e)
         {
+            controller controller = new controller();
+            kitaplariGetir();
+
+
 
 
         }
 
-        public void kitaplariGetir()
+        private void kitaplariGetir()
         {
-            con = new SqlConnection("Data Source=SEFA\\SQLEXPRESS;Initial Catalog=kutuphane;User ID=sa;password=1");
-            con.Open();
-            cmd = new SqlCommand("select * from kitap", con);
-            dr = cmd.ExecuteReader();
-
-            while(dr.Read())
-            {
-
-
-
-            }
-           
-
-
+            List<kitap> kitapList = controller.kitaplariGetir();
+            dataGridView1.DataSource = kitapList;
         }
 
+        private void btn_kaydet_Click(object sender, EventArgs e)
+        {
+            kitap kitap = new kitap();
+            kitap.kitapID =int.Parse( txt_kitapID.Text);
+            kitap.Yazari = txt_kitapyazari.Text;
+            kitap.Kitapİsmi = txt_kitapismi.Text;
+            kitap.SayfaSayisi =int.Parse( txt_sayfasayisi.Text);
+            kitap.BasimYili = int.Parse(txt_basimyili.Text);
+            kitap.YayinEvi = txt_yayinevi.Text;
+
+
+           loginStatus donenDeger = controller.kitapKaydet(kitap);
+
+            if(donenDeger==loginStatus.basarili)
+            {
+                MessageBox.Show("Kayıt başarıyla eklendi", "bilgi", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("eksik parametre girdiniz.");
+            }
+            kitaplariGetir();
+
+        }
     }
 }
